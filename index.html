@@ -46,7 +46,7 @@
         font-size: 18px;
         border-radius: 8px;
         cursor: pointer;
-        margin-top: 20px; /* separa el botón del sobre */
+        margin-bottom: 20px;
     }
     #open-btn:hover {
         background: #e63950;
@@ -70,12 +70,12 @@
         background: #ff6f91;
         clip-path: polygon(0 0, 50% 100%, 100% 0);
         transform-origin: top;
-        transition: transform 1s ease;
+        transition: transform 0.5s ease;
         z-index: 2;
     }
     .letter {
         position: absolute;
-        top: 0%; /* Carta más alta dentro del sobre */
+        top: 10%;
         left: 0;
         width: 100%;
         height: 100%;
@@ -84,14 +84,15 @@
         box-sizing: border-box;
         text-align: center;
         transform: translateY(100%);
-        transition: transform 1s ease 1s;
+        transition: transform 0.5s ease 0.5s;
         z-index: 1;
     }
     .open .flap {
         transform: rotateX(180deg);
     }
     .open .letter {
-        transform: translateY(-25%); /* Sale más hacia arriba */
+        transform: translateY(-10%);
+        transition: transform 0.5s ease;
     }
 </style>
 </head>
@@ -105,6 +106,7 @@
 
 <!-- Contenido -->
 <div id="content" style="display:none; flex-direction: column; align-items:center;">
+    <button id="open-btn">Abrir carta</button>
     <div class="envelope" id="envelope">
         <div class="flap"></div>
         <div class="letter">
@@ -114,7 +116,6 @@
             Te amo mucho 🥰</p>
         </div>
     </div>
-    <button id="open-btn">Abrir carta</button>
 </div>
 
 <script>
